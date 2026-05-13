@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load book_extras %}
+
+{% block title %}Каталог книг{% endblock %}
+
+{% block content %}
+<div class="books-grid">
+    {% for book in books %}
+        <div class="book-card">
+            <div class="book-top">
+                <span class="genre">
+                    {{ book.genre|capfirst }}
+                </span>
+
+                {% if book.is_available %}
+                    <span class="status available">В наличии</span>
+                {% else %}
+                    <span class="status unavailable">Нет в наличии</span>
+                {% endif %}
+            </div>
+
+            <h2>{{ book.title }}</h2>
+
+            <p class="author">
+                Автор: {{ book.author|upper }}
+            </p>
+
+            <p>
+                Год: {{ book.year }}
+            </p>
+
+            <p class="description">
+                {{ book.description|short_text:15 }}
+            </p>
+
+            <p class="price">
+                Цена: {{ book.price|price_rub }} 
+                <br>
+                <small>(с НДС: {{ book.price|add_vat }} ₽)</small>
+            </p>
+        </div>
+    {% empty %}
+        <div class="empty">
+            <h2>Книг пока нет</h2>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
