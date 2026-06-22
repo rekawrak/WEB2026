@@ -22,15 +22,15 @@
             </p>
 
             <p class="cart-books-label">
-                Книги в корзине ({{ cart.books.count }}):
+                Книги в корзине ({{ cart.items.count }} наимен., {{ cart.total_quantity }} шт.):
             </p>
 
-            {% if cart.books.all %}
+            {% if cart.items.all %}
                 <ul class="cart-books-list">
-                    {% for book in cart.books.all %}
+                    {% for item in cart.items.all %}
                         <li>
-                            <span>{{ book.title }}</span>
-                            <span class="book-price">{{ book.price|price_rub }}</span>
+                            <span>{{ item.book.title }} × {{ item.quantity }}</span>
+                            <span class="book-price">{{ item.subtotal|price_rub }}</span>
                         </li>
                     {% endfor %}
                 </ul>

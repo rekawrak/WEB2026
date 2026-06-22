@@ -15,7 +15,7 @@ def book_list(request):
 def cart_list(request):
     carts = (
         Cart.objects.select_related("customer")
-        .prefetch_related("books")
+        .prefetch_related("items__book")
         .all()
     )
 
