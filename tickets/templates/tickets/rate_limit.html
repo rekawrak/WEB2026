@@ -1,0 +1,10 @@
+{% extends "tickets/base.html" %}
+{% block title %}Слишком много запросов{% endblock %}
+{% block content %}
+<div class="error-box">
+    <div class="error-icon">⏱</div>
+    <h2>Слишком много запросов</h2>
+    <p>Вы отправляете запросы слишком часто. Подождите <strong>{{ window }} секунд</strong> и попробуйте снова.</p>
+    <a href="/tickets/" class="btn btn-primary">Вернуться</a>
+</div>
+{% endblock %}

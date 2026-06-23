@@ -1,0 +1,11 @@
+{% extends "tickets/base.html" %}
+{% block title %}Операция запрещена{% endblock %}
+{% block content %}
+<div class="error-box">
+    <div class="error-icon">🔒</div>
+    <h2>Операция запрещена вне рабочего времени</h2>
+    <p>Запись данных доступна только в рабочие часы: <strong>{{ allowed_hours }}</strong> (пн–пт)</p>
+    <p>Текущее время сервера: <strong>{{ server_time|date:"d.m.Y H:i" }}</strong></p>
+    <a href="/tickets/" class="btn btn-primary">Вернуться к списку</a>
+</div>
+{% endblock %}
