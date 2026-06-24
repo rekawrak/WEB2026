@@ -1,0 +1,22 @@
+{% load book_extras %}
+
+<header class="site-header">
+    <div class="container header-content">
+
+        <div>
+            <h1>Каталог книг</h1>
+            <p>Лабораторная №3</p>
+        </div>
+
+        <nav class="main-nav">
+            <a href="{% url 'book_list' %}">Книги</a>
+            <a href="{% url 'cart_list' %}">Корзины</a>
+            <a href="/admin/">Админ-панель</a>
+        </nav>
+
+        <div class="books-counter">
+            Всего книг: {% books_count %}
+        </div>
+
+    </div>
+</header>

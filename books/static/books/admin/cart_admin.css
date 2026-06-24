@@ -1,0 +1,12 @@
+#result_list tr:has(.cart-row-status-cancelled) {
+    background-color: #fee2e2 !important;
+}
+
+#result_list tr:has(.cart-row-status-completed) {
+    background-color: #f3f4f6 !important;
+}
+
+#result_list tr:has(.cart-row-status-cancelled):hover,
+#result_list tr:has(.cart-row-status-completed):hover {
+    filter: brightness(0.97);
+}
